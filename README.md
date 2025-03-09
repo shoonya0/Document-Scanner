@@ -186,7 +186,7 @@ node server.js
 
 - **Authentication**
 
-  - **POST /auth/register** – Register a new user.
+  **POST /auth/register** – Register a new user.
 
   ```
   JSON Body:
@@ -196,7 +196,7 @@ node server.js
   }
   ```
 
-  - **POST /auth/login** – Login a user.
+  **POST /auth/login** – Login a user.
 
   ```
   JSON Body:
@@ -206,17 +206,17 @@ node server.js
   }
   ```
 
-  - **DELETE /auth/logout** – Logout a user.
+  **DELETE /auth/logout** – Logout a user.
 
 - **User**
 
-  - **GET /user/profile** – Retrieve user profile and associated documents.
+  **GET /user/profile** – Retrieve user profile and associated documents.
 
   ```
   Headers: { "x-access-token": "<JWT_TOKEN>" }
   ```
 
-  - **POST /user/request** – Request additional credits.
+  **POST /user/request** – Request additional credits.
 
   ```
   Headers: { "x-access-token": "<JWT_TOKEN>" }
@@ -228,21 +228,21 @@ node server.js
 
 - **Documents**
 
-  - **POST /scanUpload** – Upload a document for scanning.
+  **POST /scanUpload** – Upload a document for scanning.
 
   ```
   Headers: { "x-access-token": "<JWT_TOKEN>" }
   Form-data: { "document": "upload.txt" }
   ```
 
-  - **GET /matches/:docId** – Retrieve matching documents based on a document ID.
+  **GET /matches/:docId** – Retrieve matching documents based on a document ID.
 
   ```
   Headers: { "x-access-token": "<JWT_TOKEN>" }
   ```
 
 - **Scans**
-  - **POST /scan** – Scan a document and extract keywords.
+  **POST /scan** – Scan a document and extract keywords.
   ```
   Headers: { "x-access-token": "<JWT_TOKEN>" }
   JSON Body:
@@ -252,7 +252,7 @@ node server.js
   ```
 - **Keyword Extraction (Flask)**
 
-  - **POST http://localhost:5000/yake/**
+  **POST http://localhost:5000/yake/**
 
   ```
   JSON Body:
