@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>User Profile</h2>
+        <div id="profileInfo"></div>
+        <div class="container">
+            <h2>Upload Document</h2>
+            <form id="uploadForm">
+                <input type="file" id="document" required>
+                <button type="submit">Upload</button>
+            </form>
+        </div>
+        <!-- scan uploaded documents -->
+        <button id="scanDocument">Scan Document</button>
+        <button id="approveCreditRequest">Request Credit</button>
+
+        <!-- get matching documents -->
+        <a href="matches.html">Matches</a>
+    </div>
+    <script src="./scripts/profile.js"></script>
+</body>
+</html>
