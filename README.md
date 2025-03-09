@@ -13,7 +13,7 @@ A full-stack application that allows users to upload documents, scan them for ke
 - [Setup and Installation](#setup-and-installation)
 - [Docker Integration](#docker-integration)
 - [Usage](#usage)
-- [API Endpoints](#api-endpoints)
+- [API Endpoints And Testing](#api-endpoints)
 - [Frontend Scripts](#frontend-scripts)
 - [Contributing](#contributing)
 - [License](#license)
@@ -182,31 +182,91 @@ node server.js
 - **Document Matching:** View matching documents based on similarity scores.
 - **Admin Dashboard:** Admin users can view analytics, manage users, and approve credit requests.
 
-## API Endpoints
+## API Endpoints And Testing
 
 - **Authentication**
 
-  - POST /auth/register – Register a new user.
-  - POST /auth/login – Login a user.
-  - DELETE /auth/logout – Logout a user.
+  - **POST /auth/register** – Register a new user.
+
+  ```
+  JSON Body:
+  {
+    "username":"Rohit Chandel",
+    "password":"password"
+  }
+  ```
+
+  - **POST /auth/login** – Login a user.
+
+  ```
+  JSON Body:
+  {
+    "username":"Shoonya",
+    "password":"password"
+  }
+  ```
+
+  - **DELETE /auth/logout** – Logout a user.
 
 - **User**
 
-  - GET /user/profile – Retrieve user profile and associated documents.
-  - POST /user/request – Request additional credits.
+  - **GET /user/profile** – Retrieve user profile and associated documents.
+
+  ```
+  Headers: { "x-access-token": "<JWT_TOKEN>" }
+  ```
+
+  - **POST /user/request** – Request additional credits.
+
+  ```
+  Headers: { "x-access-token": "<JWT_TOKEN>" }
+  JSON Body :
+  {
+    "userId": 1
+  }
+  ```
 
 - **Documents**
 
-  - POST /scanUpload – Upload a document for scanning.
-  - GET /matches/:docId – Retrieve matching documents based on a document ID.
+  - **POST /scanUpload** – Upload a document for scanning.
+
+  ```
+  Headers: { "x-access-token": "<JWT_TOKEN>" }
+  Form-data: { "document": "upload.txt" }
+  ```
+
+  - **GET /matches/:docId** – Retrieve matching documents based on a document ID.
+
+  ```
+  Headers: { "x-access-token": "<JWT_TOKEN>" }
+  ```
 
 - **Scans**
+  - **POST /scan** – Scan a document and extract keywords.
+  ```
+  Headers: { "x-access-token": "<JWT_TOKEN>" }
+  JSON Body:
+  {
+    "documentId": 4
+  }
+  ```
+- **Keyword Extraction (Flask)**
 
-  - POST /scan – Scan a document and extract keywords.
+  - **POST http://localhost:5000/yake/**
+
+  ```
+  JSON Body:
+  {
+    "language": "en",
+    "max_ngram_size": 3,
+    "number_of_keywords": 10,
+    "text": "Google is acquiring Kaggle, a platform for data science competitions."
+  }
+  ```
 
 - **Admin**
-  - GET /admin/analytics – Get analytics data (scan counts, users, credit requests).
-  - POST /admin/approve-credit-requests – Approve pending credit requests.
+  - **GET /admin/analytics** – Get analytics data (scan counts, users, credit requests).
+  - **POST /admin/approve-credit-requests** – Approve pending credit requests.
 
 ## Frontend Scripts
 
