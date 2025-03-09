@@ -1,7 +1,4 @@
 const db = require("../models/models");
-
-const creditManager = require("../utils/creditManager");
-const textMatching = require("../utils/textMatching");
 const fs = require("fs");
 
 exports.uploadDocument = (req, res) => {

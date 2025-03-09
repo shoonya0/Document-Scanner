@@ -8,7 +8,6 @@ const documentRoutes = require("./routes/documentRoutes");
 const scanRoutes = require("./routes/scanRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const creditRoutes = require("./routes/creditRoutes");
-const jsonBodyParser = require("./middlewares/jsonBodyParser");
 const app = express();
 
 app.use((req, res, next) => {
