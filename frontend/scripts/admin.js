@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // get the analytics data
-  // token is in the local <storage></storage>
   const token = localStorage.getItem("sessionToken");
   fetch("http://localhost:3000/admin/analytics", {
     headers: {
